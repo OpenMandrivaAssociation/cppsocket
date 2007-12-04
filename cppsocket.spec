@@ -1,6 +1,6 @@
 %define	name		cppsocket
 %define	version		0.8.4
-%define	release		3mdk
+%define	release		 %mkrel 3
 %define	lib_name_orig	lib%{name}
 %define	lib_major	0
 %define	lib_name	%mklibname %{name} %{lib_major}
