@@ -4,16 +4,16 @@
 %define	lib_name_orig	lib%{name}
 %define	lib_major	0
 %define	lib_name	%mklibname %{name} %{lib_major}
-%define	lib_name_devel	%mklibname %{name} %{lib_major} -d
+%define	lib_name_devel	%mklibname %{name} -d
 
 Name:		%{name}
 Summary:	A small and easy to use C++ library for programming with TCP and UDP sockets
 Version:	%{version}
 Release:	%{release}
-License:	GPL
+License:	LGPLv2+
 Group:		System/Libraries
 Source0:	%{name}-%{version}.tar.bz2
-Patch0:		cppsocket-0.8.4-gcc3_4.patch.bz2
+Patch0:		cppsocket-0.8.4-gcc3_4.patch
 URL:		http://www.sourceforge.net/projects/cppsocket
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 #BuildRequires:	
@@ -63,6 +63,7 @@ Summary: Headers for developing programs that will use %{name}
 Group: Development/C
 Requires: %{lib_name} = %{version} libexpat-devel
 Provides: %{lib_name_orig}-devel = %{version}-%{release} %{name}-devel = %{version}-%{release}
+Obsoletes: %{lib_name}-devel
 
 %description -n %{lib_name_devel}
 This package contains the headers that programmers will need to develop
@@ -96,7 +97,7 @@ TCP and UDP sockets.
 %files -n %{lib_name}
 %defattr(-, root, root)
 %doc AUTHORS ChangeLog
-%{_libdir}/*.so.*
+%{_libdir}/*.so.%{major}*
 
 %files -n %{lib_name_devel}
 %defattr(-, root, root)
