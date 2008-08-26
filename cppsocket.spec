@@ -14,6 +14,7 @@ License:	LGPLv2+
 Group:		System/Libraries
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		cppsocket-0.8.4-gcc3_4.patch
+Patch1:		cppsocket-0.8.4-gcc43-fix.patch
 URL:		http://www.sourceforge.net/projects/cppsocket
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 #BuildRequires:	
@@ -73,6 +74,7 @@ TCP and UDP sockets.
 %prep
 %setup -q -n %{name}
 %patch0 -p1 -b .gcc3_4
+%patch1 -p0
 
 %build
 %configure	--enable-final \
@@ -97,7 +99,7 @@ TCP and UDP sockets.
 %files -n %{lib_name}
 %defattr(-, root, root)
 %doc AUTHORS ChangeLog
-%{_libdir}/*.so.%{major}*
+%{_libdir}/*.so.%{lib_major}*
 
 %files -n %{lib_name_devel}
 %defattr(-, root, root)
