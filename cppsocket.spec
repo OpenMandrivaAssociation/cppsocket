@@ -77,14 +77,17 @@ TCP and UDP sockets.
 %patch1 -p0
 
 %build
-%configure	--enable-final \
+%configure2_5x	--enable-final \
 		--with-gnu-ld \
 		--with-pic
+		
 %make
 
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
 %makeinstall_std
+
+#rm -f %{buildroot}%{_libdir}/*.a
 
 %if %mdkversion < 200900
 %post -n %{lib_name} -p /sbin/ldconfig
@@ -94,7 +97,7 @@ TCP and UDP sockets.
 %endif
 
 %clean
-%{__rm} -rf $RPM_BUILD_ROOT
+%{__rm} -rf %{buildroot}
 
 %files -n %{lib_name}
 %defattr(-, root, root)
