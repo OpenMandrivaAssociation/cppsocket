@@ -1,6 +1,6 @@
 %define	name		cppsocket
 %define	version		0.8.4
-%define	release		 %mkrel 5
+%define	release		 %mkrel 6
 %define	lib_name_orig	lib%{name}
 %define	lib_major	0
 %define	lib_name	%mklibname %{name} %{lib_major}
@@ -87,7 +87,6 @@ TCP and UDP sockets.
 %{__rm} -rf $RPM_BUILD_ROOT
 %makeinstall_std
 
-#rm -f %{buildroot}%{_libdir}/*.a
 
 %if %mdkversion < 200900
 %post -n %{lib_name} -p /sbin/ldconfig
