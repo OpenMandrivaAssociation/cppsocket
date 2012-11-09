@@ -1,0 +1,33 @@
+diff -Naur cppsocket.orig/exception.h cppsocket/exception.h
+--- cppsocket.orig/exception.h	2003-03-14 19:54:07.000000000 +0100
++++ cppsocket/exception.h	2008-08-26 18:23:43.000000000 +0200
+@@ -27,6 +27,7 @@
+ #include <netdb.h>
+ #include <string>
+ #include <exception>
++#include <cstring>
+ 
+ namespace CPPSocket
+ {
+diff -Naur cppsocket.orig/option.h cppsocket/option.h
+--- cppsocket.orig/option.h	2003-03-22 14:28:35.000000000 +0100
++++ cppsocket/option.h	2008-08-26 18:23:22.000000000 +0200
+@@ -27,6 +27,7 @@
+ #include <sys/socket.h>
+ #include <netinet/in.h>
+ #include <netinet/tcp.h>
++#include <cstring>
+ 
+ namespace CPPSocket
+ {
+diff -Naur cppsocket.orig/stringbuffer.cpp cppsocket/stringbuffer.cpp
+--- cppsocket.orig/stringbuffer.cpp	2003-03-14 19:54:07.000000000 +0100
++++ cppsocket/stringbuffer.cpp	2008-08-26 18:24:25.000000000 +0200
+@@ -21,6 +21,7 @@
+  ***************************************************************************/
+ 
+ #include <cppsocket/stringbuffer.h>
++#include <cstring>
+ 
+ namespace CPPSocket
+ {

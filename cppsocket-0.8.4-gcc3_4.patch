@@ -1,0 +1,19 @@
+--- cppsocket/cppsocket/tcpthreadedserver.h.bak	2003-03-14 19:54:07.000000000 +0100
++++ cppsocket/cppsocket/tcpthreadedserver.h	2004-10-30 13:32:03.253183162 +0200
+@@ -65,13 +65,15 @@
+     int processedClients() throw();
+ 
+   protected:
++    friend class TCPListen;
++
+     /** The thread that is listening for new connections.
+       *
+       * All it's data is within the TCPTreadedServer.
+       *
+       * @author Ralf-Christian Jürgensen
+       */
+-    friend class TCPListen : public Thread
++    class TCPListen : public Thread
+     {
+     public:
+       TCPThreadedServer* server;
