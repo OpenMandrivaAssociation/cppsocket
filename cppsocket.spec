@@ -1,6 +1,6 @@
 %define	name		cppsocket
 %define	version		0.8.4
-%define	release		 %mkrel 7
+%define	release		 %mkrel 6
 %define	lib_name_orig	lib%{name}
 %define	lib_major	0
 %define	lib_name	%mklibname %{name} %{lib_major}
@@ -16,7 +16,6 @@ Source0:	%{name}-%{version}.tar.bz2
 Patch0:		cppsocket-0.8.4-gcc3_4.patch
 Patch1:		cppsocket-0.8.4-gcc43-fix.patch
 URL:		http://www.sourceforge.net/projects/cppsocket
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 #BuildRequires:	
 
 %description
@@ -79,34 +78,20 @@ TCP and UDP sockets.
 %build
 %configure2_5x	--enable-final \
 		--with-gnu-ld \
+		--disable-static \
 		--with-pic
 		
 %make
 
 %install
-%{__rm} -rf $RPM_BUILD_ROOT
 %makeinstall_std
 
 
-%if %mdkversion < 200900
-%post -n %{lib_name} -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %{lib_name} -p /sbin/ldconfig
-%endif
-
-%clean
-%{__rm} -rf %{buildroot}
-
 %files -n %{lib_name}
-%defattr(-, root, root)
 %doc AUTHORS ChangeLog
 %{_libdir}/*.so.%{lib_major}*
 
 %files -n %{lib_name_devel}
-%defattr(-, root, root)
 %doc README TODO
 %{_includedir}/%{name}
-%{_libdir}/*.?a
 %{_libdir}/*.so
-
