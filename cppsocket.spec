@@ -15,7 +15,7 @@ Group:		System/Libraries
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		cppsocket-0.8.4-gcc3_4.patch
 Patch1:		cppsocket-0.8.4-gcc43-fix.patch
-URL:		http://www.sourceforge.net/projects/cppsocket
+URL:		https://www.sourceforge.net/projects/cppsocket
 #BuildRequires:	
 
 %description
