@@ -18,6 +18,11 @@ Patch1:		cppsocket-0.8.4-gcc43-fix.patch
 URL:		https://www.sourceforge.net/projects/cppsocket
 #BuildRequires:	
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 %description
 CPPSocket is a small Classlibrary for C++ that supports a easy usage of
 socket-programming for networking-software.
